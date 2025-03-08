@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E">
+        <animate
+          attributeName="stop-color"
+          values="#22C55E;#16A34A;#22C55E"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </stop>
+      <stop offset="100%" stop-color="#15803D">
+        <animate
+          attributeName="stop-color"
+          values="#15803D;#166534;#15803D"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle 
+    cx="256" 
+    cy="256" 
+    r="240" 
+    fill="url(#mainGradient)" 
+    filter="url(#glow)"
+  >
+    <animate
+      attributeName="r"
+      values="240;245;240"
+      dur="4s"
+      repeatCount="indefinite"
+    />
+  </circle>
+
+  <!-- Central Icon Group -->
+  <g transform="translate(256, 256)">
+    <!-- Graduation Cap -->
+    <g transform="translate(0, -40)">
+      <!-- Cap Base -->
+      <rect 
+        x="-80" 
+        y="-10" 
+        width="160" 
+        height="20" 
+        fill="url(#accentGradient)"
+        rx="10"
+      >
+        <animate
+          attributeName="width"
+          values="160;165;160"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </rect>
+      
+      <!-- Cap Top -->
+      <path
+        d="M-60,-30 L60,-30 L0,-90 Z"
+        fill="url(#accentGradient)"
+      >
+        <animate
+          attributeName="d"
+          values="M-60,-30 L60,-30 L0,-90 Z;M-62,-30 L62,-30 L0,-92 Z;M-60,-30 L60,-30 L0,-90 Z"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </path>
+      
+      <!-- Tassel -->
+      <g transform="translate(-60, -25)">
+        <path
+          d="M0,0 Q-10,20 -5,40"
+          stroke="#3B82F6"
+          stroke-width="6"
+          fill="none"
+          stroke-linecap="round"
+        >
+          <animate
+            attributeName="d"
+            values="M0,0 Q-10,20 -5,40;M0,0 Q-12,22 -7,42;M0,0 Q-10,20 -5,40"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </path>
+      </g>
+    </g>
+
+    <!-- Headphones -->
+    <g transform="translate(0, 40)">
+      <!-- Headband -->
+      <path
+        d="M-80,-20 C-80,-80 80,-80 80,-20"
+        stroke="url(#accentGradient)"
+        stroke-width="20"
+        stroke-linecap="round"
+        fill="none"
+        filter="url(#glow)"
+      >
+        <animate
+          attributeName="d"
+          values="M-80,-20 C-80,-80 80,-80 80,-20;M-80,-22 C-80,-82 80,-82 80,-22;M-80,-20 C-80,-80 80,-80 80,-20"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </path>
+
+      <!-- Ear Cups -->
+      <g transform="translate(-80, -20)">
+        <circle 
+          cx="0" 
+          cy="0" 
+          r="30" 
+          fill="url(#accentGradient)" 
+          filter="url(#glow)"
+        >
+          <animate
+            attributeName="r"
+            values="30;32;30"
+            dur="1s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="0" cy="0" r="20" fill="#1E293B"/>
+        <circle cx="0" cy="0" r="12" fill="#3B82F6">
+          <animate
+            attributeName="r"
+            values="12;14;12"
+            dur="1s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </g>
+      
+      <g transform="translate(80, -20)">
+        <circle 
+          cx="0" 
+          cy="0" 
+          r="30" 
+          fill="url(#accentGradient)" 
+          filter="url(#glow)"
+        >
+          <animate
+            attributeName="r"
+            values="30;32;30"
+            dur="1s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="0" cy="0" r="20" fill="#1E293B"/>
+        <circle cx="0" cy="0" r="12" fill="#3B82F6">
+          <animate
+            attributeName="r"
+            values="12;14;12"
+            dur="1s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </g>
+    </g>
+
+    <!-- Sound Waves -->
+    <g>
+      {[...Array(3)].map((_, i) => (
+        <circle
+          key={i}
+          cx="0"
+          cy="0"
+          r={120 + i * 30}
+          fill="none"
+          stroke="#3B82F6"
+          stroke-width="2"
+          opacity="0.2"
+        >
+          <animate
+            attributeName="r"
+            values={`${120 + i * 30};${130 + i * 30};${120 + i * 30}`}
+            dur="2s"
+            begin={`${i * 0.3}s`}
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="opacity"
+            values="0.2;0;0.2"
+            dur="2s"
+            begin={`${i * 0.3}s`}
+            repeatCount="indefinite"
+          />
+        </circle>
+      ))}
+    </g>
+
+    <!-- Musical Notes -->
+    {[
+      { x: 100, y: -80, scale: 1, delay: 0 },
+      { x: 120, y: -40, scale: 0.8, delay: 0.5 },
+      { x: 140, y: -60, scale: 0.6, delay: 1 }
+    ].map((note, i) => (
+      <g key={i} transform={`translate(${note.x}, ${note.y}) scale(${note.scale})`}>
+        <path
+          d="M0,0 L0,20 L10,20 A5,5 0 1 1 10,30 A5,5 0 1 1 10,20"
+          fill="#3B82F6"
+          opacity="0.6"
+        >
+          <animate
+            attributeName="opacity"
+            values="0.6;0.2;0.6"
+            dur="2s"
+            begin={`${note.delay}s`}
+            repeatCount="indefinite"
+          />
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            values="0,0; 0,-10; 0,0"
+            dur="2s"
+            begin={`${note.delay}s`}
+            repeatCount="indefinite"
+          />
+        </path>
+      </g>
+    ))}
+  </g>
+</svg>
